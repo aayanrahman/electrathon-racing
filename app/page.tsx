@@ -62,12 +62,16 @@ export default function Home() {
               vehicle technology.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button size="lg" className="rounded-full">
-                Meet The Team
-              </Button>
-              <Button size="lg" variant="outline" className="rounded-full">
-                Our Sponsors
-              </Button>
+              <Link href="/team">
+                <Button size="lg" className="rounded-full">
+                  Meet The Team
+                </Button>
+              </Link>
+              <Link href="/sponsors">
+                <Button size="lg" variant="outline" className="rounded-full">
+                  Our Sponsors
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
