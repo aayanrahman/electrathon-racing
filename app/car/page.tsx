@@ -46,7 +46,7 @@ export default function CarPage() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/placeholder.svg?height=1080&width=1920"
+            src="/images/cars/IMG_0355.jpg"
             alt="Electrathon Car"
             fill
             priority
@@ -57,7 +57,7 @@ export default function CarPage() {
 
         <div className="container relative z-10 px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center space-y-8">
-            <div className="text-8xl md:text-9xl font-bold text-primary/20 opacity-50">E-VOLT X1</div>
+            <div className="text-8xl md:text-9xl font-bold text-primary/50 opacity-100">E-VOLT X1</div>
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
               ENGINEERED FOR EFFICIENCY
             </h1>
@@ -68,7 +68,7 @@ export default function CarPage() {
           </div>
         </div>
 
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
+        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
           <Button variant="ghost" size="icon" className="rounded-full" onClick={() => scrollToSection("specs")}>
             <ChevronDown className="h-8 w-8" />
           </Button>
@@ -157,7 +157,7 @@ export default function CarPage() {
 
             <div className="relative h-[500px] rounded-xl overflow-hidden">
               <Image
-                src="/placeholder.svg?height=500&width=500"
+                src="/images/cars/sigma.png?height=600&width=600"
                 alt="E-VOLT X1 Technical Drawing"
                 fill
                 className="object-contain"

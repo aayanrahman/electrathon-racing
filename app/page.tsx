@@ -43,7 +43,7 @@ export default function Home() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div ref={heroRef} className="absolute inset-0 z-0">
           <Image
-            src="/placeholder.svg?height=1080&width=1920"
+            src="/images/boy.png?height=1080&width=1920"
             alt="Electrathon Racing Car"
             fill
             priority
@@ -105,7 +105,7 @@ export default function Home() {
             </div>
             <div className="relative h-[400px] md:h-[500px] rounded-xl overflow-hidden">
               <Image
-                src="/placeholder.svg?height=500&width=500"
+                src="/images/team.webp?height=500&width=500"
                 alt="Team working on Electrathon car"
                 fill
                 className="object-cover"
