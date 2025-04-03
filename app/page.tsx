@@ -91,12 +91,13 @@ export default function Home() {
                 Driving Innovation in Electric Racing
               </h2>
               <p className="text-muted-foreground text-lg">
+                {/*TO DO: Change the description here  */}
                 Our Electrathon Racing Team is a group of dedicated students passionate about sustainable technology and
                 high-performance electric vehicles. We design, build, and race our own electric car, competing against
                 other schools in endurance races.
               </p>
               <p className="text-muted-foreground text-lg">
-                Founded in 2020, our team has quickly risen to become one of the top competitors in the national
+                Founded in 2023, our team has quickly risen to become one of the top competitors in the national
                 Electrathon circuit, with multiple podium finishes and a reputation for innovative design solutions.
               </p>
               <Button variant="default" className="rounded-full group">

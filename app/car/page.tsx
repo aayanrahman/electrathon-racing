@@ -41,8 +41,8 @@ export default function CarPage() {
   }
 
   return (
-    <div className="pt-16">
-      {/* Hero Section */}
+    <div className="min-h-screen">
+      {/* Hero Section - Removed pt-16 to allow image to extend under navbar */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
@@ -52,12 +52,13 @@ export default function CarPage() {
             priority
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
+          {/* Added gradient at top to ensure navbar text remains readable */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-background/40 to-background" />
         </div>
 
-        <div className="container relative z-10 px-4 md:px-6">
+        <div className="container relative z-10 px-4 md:px-6 mt-20">
           <div className="max-w-3xl mx-auto text-center space-y-8">
-            <div className="text-8xl md:text-9xl font-bold text-primary/50 opacity-100">E-VOLT X1</div>
+            <div className="text-8xl md:text-9xl font-bold text-primary/50 opacity-100">WarRig X1</div>
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
               ENGINEERED FOR EFFICIENCY
             </h1>

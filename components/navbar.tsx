@@ -26,33 +26,33 @@ export default function Navbar() {
         isScrolled ? "bg-background/95 backdrop-blur-sm border-b" : "bg-transparent",
       )}
     >
-      <div className="container flex h-16 items-center justify-between px-4 md:px-6">
-        <Link href="/" className="flex items-center space-x-2">
-          <div className="relative h-8 w-8">
-            <Image
-              src="/placeholder.svg?height=32&width=32"
-              alt="Electrathon Racing Logo"
-              fill
-              className="object-contain"
-            />
-          </div>
-          <span className="font-bold text-xl hidden sm:inline-block">ELECTRATHON</span>
+      <div className="container flex h-20 items-center justify-between px-4 md:px-6">
+        <Link href="/" className="flex items-center space-x-3">
+        <div className="relative h-14 w-14">
+              <Image
+                src="/images/logo.png"
+                alt="Electrathon Racing Logo"
+                fill
+                className="object-contain"
+              />
+            </div>
+          <span className="font-bold text-2xl hidden sm:inline-block">WOSS EVC</span>
         </Link>
 
-        <nav className="hidden md:flex items-center space-x-6">
-          <Link href="/" className="text-sm font-medium hover:text-primary transition-colors">
+        <nav className="hidden md:flex items-center space-x-8">
+          <Link href="/" className="text-base font-medium hover:text-primary transition-colors">
             Home
           </Link>
-          <Link href="/team" className="text-sm font-medium hover:text-primary transition-colors">
+          <Link href="/team" className="text-base font-medium hover:text-primary transition-colors">
             Team
           </Link>
-          <Link href="/car" className="text-sm font-medium hover:text-primary transition-colors">
+          <Link href="/car" className="text-base font-medium hover:text-primary transition-colors">
             Car
           </Link>
-          <Link href="/sponsors" className="text-sm font-medium hover:text-primary transition-colors">
+          <Link href="/sponsors" className="text-base font-medium hover:text-primary transition-colors">
             Sponsors
           </Link>
-          <Link href="/races" className="text-sm font-medium hover:text-primary transition-colors">
+          <Link href="/races" className="text-base font-medium hover:text-primary transition-colors">
             Races
           </Link>
           <Button variant="ghost" size="icon" className="ml-2">
@@ -68,17 +68,17 @@ export default function Navbar() {
 
         {isMenuOpen && (
           <div className="fixed inset-0 z-50 bg-background">
-            <div className="flex h-16 items-center justify-between px-4">
-              <Link href="/" className="flex items-center space-x-2">
-                <div className="relative h-8 w-8">
+            <div className="flex h-20 items-center justify-between px-4">
+              <Link href="/" className="flex items-center space-x-3">
+                <div className="relative h-10 w-10">
                   <Image
-                    src="/placeholder.svg?height=32&width=32"
+                    src="/images/Electrathon_PNG.png?height=32&width=32"
                     alt="Electrathon Racing Logo"
                     fill
                     className="object-contain"
                   />
                 </div>
-                <span className="font-bold text-xl">ELECTRATHON</span>
+                <span className="font-bold text-2xl">WOSS EVC</span>
               </Link>
               <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(false)}>
                 <X className="h-6 w-6" />
@@ -88,35 +88,35 @@ export default function Navbar() {
             <nav className="flex flex-col space-y-6 p-6">
               <Link
                 href="/"
-                className="text-xl font-medium hover:text-primary transition-colors"
+                className="text-2xl font-medium hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
               </Link>
               <Link
                 href="/team"
-                className="text-xl font-medium hover:text-primary transition-colors"
+                className="text-2xl font-medium hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Team
               </Link>
               <Link
                 href="/car"
-                className="text-xl font-medium hover:text-primary transition-colors"
+                className="text-2xl font-medium hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Car
               </Link>
               <Link
                 href="/sponsors"
-                className="text-xl font-medium hover:text-primary transition-colors"
+                className="text-2xl font-medium hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Sponsors
               </Link>
               <Link
                 href="/races"
-                className="text-xl font-medium hover:text-primary transition-colors"
+                className="text-2xl font-medium hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Races

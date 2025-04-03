@@ -11,7 +11,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center space-x-2">
               <div className="relative h-10 w-10">
                 <Image
-                  src="/placeholder.svg?height=40&width=40"
+                  src="/images/logo.png?height=40&width=40"
                   alt="Electrathon Racing Logo"
                   fill
                   className="object-contain"
