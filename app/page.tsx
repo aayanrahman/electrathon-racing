@@ -356,7 +356,7 @@ export default function Home() {
             </div>
             <div className="relative h-[400px] rounded-xl overflow-hidden">
               <Image
-                src="/placeholder.svg?height=400&width=600"
+                src="/images/weld.jpg?height=400&width=600"
                 alt="Team members working together"
                 fill
                 className="object-cover"

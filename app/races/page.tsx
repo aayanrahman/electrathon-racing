@@ -82,11 +82,11 @@ export default function RacesPage() {
   ]
 
   return (
-    <div className="pt-16">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Image src="/placeholder.svg?height=800&width=1600" alt="Race track" fill priority className="object-cover" />
+          <Image src="/images/events/blud.png?height=800&width=1600" alt="Race track" fill priority className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
         </div>
 

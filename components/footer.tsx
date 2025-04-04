@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Facebook, Twitter, Instagram, Youtube } from "lucide-react"
+import {Instagram, Youtube, Github } from "lucide-react"
 import Image from "next/image"
 
 export default function Footer() {
@@ -17,7 +17,7 @@ export default function Footer() {
                   className="object-contain"
                 />
               </div>
-              <span className="font-bold text-xl">ELECTRATHON</span>
+              <span className="font-bold text-xl">WOSS EVC</span>
             </Link>
             <p className="text-sm text-muted-foreground">
               Powering the future of electric racing through innovation, teamwork, and sustainable technology.
@@ -57,28 +57,24 @@ export default function Footer() {
             <h3 className="font-medium text-sm mb-4">CONTACT</h3>
             <ul className="space-y-2">
               <li className="text-sm text-muted-foreground">Email: team@electrathonracing.com</li>
-              <li className="text-sm text-muted-foreground">Phone: (123) 456-7890</li>
-              <li className="text-sm text-muted-foreground">Address: 123 School St, City, State</li>
+              <li className="text-sm text-muted-foreground">Phone: (905) 845-5200</li>
+              <li className="text-sm text-muted-foreground">Address: 1330 Montclair Dr, Oakville, ON</li>
             </ul>
           </div>
           <div>
             <h3 className="font-medium text-sm mb-4">FOLLOW US</h3>
             <div className="flex space-x-4">
               <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Facebook className="h-5 w-5" />
-                <span className="sr-only">Facebook</span>
+              <Github className="h-5 w-5" />
+              <span className="sr-only">GitHub</span>
               </Link>
               <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
+              <Instagram className="h-5 w-5" />
+              <span className="sr-only">Instagram</span>
               </Link>
               <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Instagram className="h-5 w-5" />
-                <span className="sr-only">Instagram</span>
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Youtube className="h-5 w-5" />
-                <span className="sr-only">YouTube</span>
+              <Youtube className="h-5 w-5" />
+              <span className="sr-only">YouTube</span>
               </Link>
             </div>
           </div>

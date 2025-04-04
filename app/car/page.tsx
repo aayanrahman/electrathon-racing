@@ -83,7 +83,7 @@ export default function CarPage() {
             <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Specifications</div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Technical Details</h2>
             <p className="text-muted-foreground text-lg max-w-[800px] mx-auto">
-              Every component of our E-VOLT X1 has been carefully designed and tested for maximum performance.
+              Every component of our WarRig X1 has been carefully designed and tested for maximum performance.
             </p>
           </div>
 
@@ -94,19 +94,19 @@ export default function CarPage() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1">
                     <p className="text-sm text-muted-foreground">Length</p>
-                    <p className="text-lg font-medium">96 inches</p>
+                    <p className="text-lg font-medium">80 inches</p>
                   </div>
                   <div className="space-y-1">
                     <p className="text-sm text-muted-foreground">Width</p>
-                    <p className="text-lg font-medium">36 inches</p>
+                    <p className="text-lg font-medium">23 inches</p>
                   </div>
                   <div className="space-y-1">
                     <p className="text-sm text-muted-foreground">Height</p>
-                    <p className="text-lg font-medium">30 inches</p>
+                    <p className="text-lg font-medium">46 inches</p>
                   </div>
                   <div className="space-y-1">
-                    <p className="text-sm text-muted-foreground">Weight</p>
-                    <p className="text-lg font-medium">175 pounds</p>
+                    <p className="text-sm text-muted-foreground">Frame Weight</p>
+                    <p className="text-lg font-medium">30 pounds</p>
                   </div>
                 </div>
               </div>
@@ -142,11 +142,11 @@ export default function CarPage() {
                   </div>
                   <div className="space-y-1">
                     <p className="text-sm text-muted-foreground">Battery Capacity</p>
-                    <p className="text-lg font-medium">2.5 kWh</p>
+                    <p className="text-lg font-medium">47 AH</p>
                   </div>
                   <div className="space-y-1">
                     <p className="text-sm text-muted-foreground">Motor Type</p>
-                    <p className="text-lg font-medium">BLDC Hub Motor</p>
+                    <p className="text-lg font-medium">BDC Hub Motor</p>
                   </div>
                   <div className="space-y-1">
                     <p className="text-sm text-muted-foreground">Motor Power</p>
@@ -175,7 +175,7 @@ export default function CarPage() {
             <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Key Features</div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Innovative Design Elements</h2>
             <p className="text-muted-foreground text-lg max-w-[800px] mx-auto">
-              Explore the cutting-edge features that make our E-VOLT X1 a leader in Electrathon racing.
+              Explore the cutting-edge features that make our WarRig X1 a leader in Electrathon racing.
             </p>
           </div>
 
@@ -247,7 +247,7 @@ export default function CarPage() {
             </div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">From Concept to Competition</h2>
             <p className="text-muted-foreground text-lg max-w-[800px] mx-auto">
-              Follow the journey of our E-VOLT X1 from initial design to race-ready vehicle.
+              Follow the journey of our WarRig X1 from initial design to race-ready vehicle.
             </p>
           </div>
 
@@ -382,7 +382,7 @@ export default function CarPage() {
             <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Performance</div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Race Results</h2>
             <p className="text-muted-foreground text-lg max-w-[800px] mx-auto">
-              The E-VOLT X1 has proven its capabilities on the track with impressive performance metrics.
+              The WarRig X1 has proven its capabilities on the track with impressive performance metrics.
             </p>
           </div>
 
@@ -413,7 +413,7 @@ export default function CarPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Looking Ahead</div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">The Future: E-VOLT X2</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">The Future: WarRig X2</h2>
               <p className="text-muted-foreground text-lg">
                 Our engineering team is already working on the next generation of our Electrathon vehicle, with
                 ambitious goals to push the boundaries even further.

@@ -66,11 +66,11 @@ export default function SponsorsPage() {
   ]
 
   return (
-    <div className="pt-16">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[40vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image src="/placeholder.svg?height=600&width=1600" alt="Sponsors" fill priority className="object-cover" />
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <Image src="/images/sponsers/tspmo.png?height=600&width=1600" alt="Sponsors" fill priority className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
         </div>
 
@@ -288,7 +288,7 @@ export default function SponsorsPage() {
             </div>
             <div className="relative h-[400px] rounded-xl overflow-hidden">
               <Image
-                src="/placeholder.svg?height=400&width=600"
+                src="/images/team/uw.avif?height=400&width=600"
                 alt="Sponsorship opportunities"
                 fill
                 className="object-cover"
