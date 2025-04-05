@@ -56,9 +56,15 @@ export default function Footer() {
           <div>
             <h3 className="font-medium text-sm mb-4">CONTACT</h3>
             <ul className="space-y-2">
+<<<<<<< Updated upstream
               <li className="text-sm text-muted-foreground">Email: team@electrathonracing.com</li>
               <li className="text-sm text-muted-foreground">Phone: (905) 845-5200</li>
               <li className="text-sm text-muted-foreground">Address: 1330 Montclair Dr, Oakville, ON</li>
+=======
+              <li className="text-sm text-muted-foreground">Email: team@wossevc.ca</li>
+              {/* <li className="text-sm text-muted-foreground">Phone: (123) 456-7890</li> */}
+              <li className="text-sm text-muted-foreground">Address: 1330 Montclair Drive, Oakville, Ontario</li>
+>>>>>>> Stashed changes
             </ul>
           </div>
           <div>

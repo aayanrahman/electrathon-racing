@@ -102,7 +102,11 @@ export default function CarPage() {
                   </div>
                   <div className="space-y-1">
                     <p className="text-sm text-muted-foreground">Height</p>
+<<<<<<< Updated upstream
                     <p className="text-lg font-medium">46 inches</p>
+=======
+                    <p className="text-lg font-medium">48 inches</p>
+>>>>>>> Stashed changes
                   </div>
                   <div className="space-y-1">
                     <p className="text-sm text-muted-foreground">Frame Weight</p>
@@ -116,7 +120,7 @@ export default function CarPage() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1">
                     <p className="text-sm text-muted-foreground">Top Speed</p>
-                    <p className="text-lg font-medium">45 mph</p>
+                    <p className="text-lg font-medium">∞ mph</p>
                   </div>
                   <div className="space-y-1">
                     <p className="text-sm text-muted-foreground">Range</p>
@@ -138,11 +142,15 @@ export default function CarPage() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1">
                     <p className="text-sm text-muted-foreground">Battery Type</p>
-                    <p className="text-lg font-medium">Lithium-ion</p>
+                    <p className="text-lg font-medium">12V Lithium-ion</p>
                   </div>
                   <div className="space-y-1">
                     <p className="text-sm text-muted-foreground">Battery Capacity</p>
+<<<<<<< Updated upstream
                     <p className="text-lg font-medium">47 AH</p>
+=======
+                    <p className="text-lg font-medium">48 AH</p>
+>>>>>>> Stashed changes
                   </div>
                   <div className="space-y-1">
                     <p className="text-sm text-muted-foreground">Motor Type</p>
