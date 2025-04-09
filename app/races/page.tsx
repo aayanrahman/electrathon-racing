@@ -4,7 +4,7 @@ import { useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Calendar, MapPin, Clock, Trophy } from "lucide-react"
+import { Calendar, MapPin, Clock, Trophy, Star, Target, Award } from "lucide-react"
 
 interface Race {
   id: number
@@ -14,8 +14,7 @@ interface Race {
   time: string
   image: string
   description: string
-  result?: string
-  upcoming: boolean
+  isHighlighted?: boolean
 }
 
 export default function RacesPage() {
@@ -24,257 +23,159 @@ export default function RacesPage() {
   const races: Race[] = [
     {
       id: 1,
-      name: "State Championship",
-      date: "April 15, 2025",
-      location: "Central City Speedway",
-      time: "10:00 AM - 4:00 PM",
-      image: "/placeholder.svg?height=400&width=800",
+      name: "University of Waterloo ElectrON",
+      date: "April 27, 2024",
+      location: "University of Waterloo, Engineering 5",
+      time: "9:00 AM - 5:00 PM",
+      image: "/images/events/blud.png?height=400&width=800",
       description:
-        "The annual State Championship is one of the most prestigious events in the Electrathon calendar. Teams from across the state compete in a 1-hour endurance race to see who can travel the furthest distance on a single battery charge.",
-      upcoming: true,
+        "Our team's first official competition! The University of Waterloo ElectrON brings together high school teams from across the region to compete in an exciting day of electric vehicle racing. This event will be our debut and a fantastic opportunity to showcase our vehicle's capabilities.",
+      isHighlighted: true,
     },
     {
       id: 2,
-      name: "Regional Qualifier",
-      date: "May 22, 2025",
-      location: "Westlake Circuit",
-      time: "9:00 AM - 3:00 PM",
-      image: "/placeholder.svg?height=400&width=800",
-      description:
-        "The Regional Qualifier is a crucial event that determines which teams advance to the National Finals. The race format includes a technical inspection, a sprint race, and a 45-minute endurance challenge.",
-      upcoming: true,
-    },
-    {
-      id: 3,
-      name: "National Finals",
-      date: "June 10, 2025",
-      location: "Electrathon Speedway",
-      time: "11:00 AM - 5:00 PM",
-      image: "/placeholder.svg?height=400&width=800",
-      description:
-        "The pinnacle of the Electrathon racing season, the National Finals brings together the top teams from across the country. The competition includes technical innovation judging, a presentation component, and a 90-minute endurance race.",
-      upcoming: true,
-    },
-    {
-      id: 4,
-      name: "Winter Invitational",
-      date: "January 15, 2025",
-      location: "Indoor Arena",
+      name: "Regional High School Exhibition",
+      date: "May 18, 2024",
+      location: "WOSS Campus",
       time: "10:00 AM - 2:00 PM",
       image: "/placeholder.svg?height=400&width=800",
       description:
-        "The Winter Invitational is a special indoor event that challenges teams to navigate a technical course with tight turns and varying surfaces. This event focuses on vehicle handling and driver skill.",
-      result: "1st Place",
-      upcoming: false,
+        "A showcase event where we'll demonstrate our electric vehicle to other high schools in the area. This non-competitive exhibition is aimed at inspiring other schools to start their own teams and join the growing electrathon movement.",
     },
     {
-      id: 5,
-      name: "Spring Classic",
-      date: "March 8, 2025",
-      location: "Riverside Track",
-      time: "9:00 AM - 3:00 PM",
+      id: 3,
+      name: "Technology Expo",
+      date: "June 8, 2024",
+      location: "Metro Convention Center",
+      time: "9:00 AM - 4:00 PM",
       image: "/placeholder.svg?height=400&width=800",
       description:
-        "The Spring Classic is the first major outdoor event of the season. Teams compete in multiple heat races throughout the day, with points awarded based on finishing position and energy efficiency.",
-      result: "2nd Place",
-      upcoming: false,
-    },
+        "We'll be presenting our vehicle at the annual Technology Expo, connecting with industry professionals and potential sponsors. This is a great opportunity to highlight the engineering talent of our team and secure additional support for future competitions.",
+    }
   ]
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
+      {/* Hero Section - Modified to extend under navbar */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image src="/images/events/blud.png?height=800&width=1600" alt="Race track" fill priority className="object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-background/40 to-background" />
         </div>
 
-        <div className="container relative z-10 px-4 md:px-6">
+        <div className="container relative z-10 px-4 md:px-6 mt-20">
           <div className="max-w-3xl mx-auto text-center space-y-4">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">Race Calendar</h1>
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">Our Journey Begins</h1>
             <p className="text-xl text-muted-foreground max-w-[700px] mx-auto">
-              Follow our team as we compete across the country in the national Electrathon circuit.
+              As a new team, we're preparing for our first race season with ambition and determination.
             </p>
+            <div className="mt-8">
+              <Button size="lg" className="rounded-full">
+                Support Our Team
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Race Calendar */}
+      {/* Upcoming Events */}
       <section className="py-20 md:py-32 bg-background">
         <div className="container px-4 md:px-6">
-          <Tabs defaultValue="upcoming" className="space-y-8">
-            <div className="flex justify-center">
-              <TabsList>
-                <TabsTrigger
-                  value="upcoming"
-                  onClick={() => setActiveTab("upcoming")}
-                  className="text-sm sm:text-base px-4 sm:px-8"
-                >
-                  Upcoming Races
-                </TabsTrigger>
-                <TabsTrigger
-                  value="past"
-                  onClick={() => setActiveTab("past")}
-                  className="text-sm sm:text-base px-4 sm:px-8"
-                >
-                  Past Results
-                </TabsTrigger>
-              </TabsList>
-            </div>
-
-            <TabsContent value="upcoming" className="space-y-8">
-              {races
-                .filter((race) => race.upcoming)
-                .map((race) => (
-                  <div key={race.id} className="bg-background border rounded-xl overflow-hidden">
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="relative h-64 md:h-auto">
-                        <Image src={race.image || "/placeholder.svg"} alt={race.name} fill className="object-cover" />
+          <div className="text-center mb-16 space-y-4">
+            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">2024 Season</div>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Upcoming Events</h2>
+            <p className="text-muted-foreground text-lg max-w-[800px] mx-auto">
+              Join us as we debut our electric vehicle and showcase our engineering talent.
+            </p>
+          </div>
+          
+          <div className="space-y-12">
+            {races.map((race) => (
+              <div 
+                key={race.id} 
+                className={`bg-background border rounded-xl overflow-hidden ${race.isHighlighted ? "ring-2 ring-primary" : ""}`}
+              >
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="relative h-64 md:h-auto">
+                    <Image src={race.image || "/placeholder.svg"} alt={race.name} fill className="object-cover" />
+                    {race.isHighlighted && (
+                      <div className="absolute top-4 left-4 bg-primary text-primary-foreground px-4 py-2 rounded-full font-bold flex items-center">
+                        <Star className="h-4 w-4 mr-2" />
+                        First Official Race!
                       </div>
-                      <div className="p-6 md:p-8 flex flex-col justify-between">
-                        <div className="space-y-4">
-                          <h3 className="text-2xl font-bold">{race.name}</h3>
-                          <div className="space-y-2">
-                            <div className="flex items-center text-muted-foreground">
-                              <Calendar className="h-4 w-4 mr-2" />
-                              <span>{race.date}</span>
-                            </div>
-                            <div className="flex items-center text-muted-foreground">
-                              <MapPin className="h-4 w-4 mr-2" />
-                              <span>{race.location}</span>
-                            </div>
-                            <div className="flex items-center text-muted-foreground">
-                              <Clock className="h-4 w-4 mr-2" />
-                              <span>{race.time}</span>
-                            </div>
-                          </div>
-                          <p className="text-muted-foreground">{race.description}</p>
+                    )}
+                  </div>
+                  <div className="p-6 md:p-8 flex flex-col justify-between">
+                    <div className="space-y-4">
+                      <h3 className="text-2xl font-bold">{race.name}</h3>
+                      <div className="space-y-2">
+                        <div className="flex items-center text-muted-foreground">
+                          <Calendar className="h-4 w-4 mr-2" />
+                          <span>{race.date}</span>
                         </div>
-                        <div className="mt-6 flex space-x-4">
-                          <Button className="rounded-full">Event Details</Button>
-                          <Button variant="outline" className="rounded-full">
-                            Add to Calendar
-                          </Button>
+                        <div className="flex items-center text-muted-foreground">
+                          <MapPin className="h-4 w-4 mr-2" />
+                          <span>{race.location}</span>
+                        </div>
+                        <div className="flex items-center text-muted-foreground">
+                          <Clock className="h-4 w-4 mr-2" />
+                          <span>{race.time}</span>
                         </div>
                       </div>
+                      <p className="text-muted-foreground">{race.description}</p>
+                    </div>
+                    <div className="mt-6 flex space-x-4">
+                      <Button className="rounded-full">Event Details</Button>
+                      <Button variant="outline" className="rounded-full">
+                        Add to Calendar
+                      </Button>
                     </div>
                   </div>
-                ))}
-            </TabsContent>
-
-            <TabsContent value="past" className="space-y-8">
-              {races
-                .filter((race) => !race.upcoming)
-                .map((race) => (
-                  <div key={race.id} className="bg-background border rounded-xl overflow-hidden">
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="relative h-64 md:h-auto">
-                        <Image src={race.image || "/placeholder.svg"} alt={race.name} fill className="object-cover" />
-                        {race.result && (
-                          <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-4 py-2 rounded-full font-bold">
-                            {race.result}
-                          </div>
-                        )}
-                      </div>
-                      <div className="p-6 md:p-8 flex flex-col justify-between">
-                        <div className="space-y-4">
-                          <h3 className="text-2xl font-bold">{race.name}</h3>
-                          <div className="space-y-2">
-                            <div className="flex items-center text-muted-foreground">
-                              <Calendar className="h-4 w-4 mr-2" />
-                              <span>{race.date}</span>
-                            </div>
-                            <div className="flex items-center text-muted-foreground">
-                              <MapPin className="h-4 w-4 mr-2" />
-                              <span>{race.location}</span>
-                            </div>
-                            {race.result && (
-                              <div className="flex items-center text-primary">
-                                <Trophy className="h-4 w-4 mr-2" />
-                                <span>{race.result}</span>
-                              </div>
-                            )}
-                          </div>
-                          <p className="text-muted-foreground">{race.description}</p>
-                        </div>
-                        <div className="mt-6">
-                          <Button variant="outline" className="rounded-full">
-                            View Race Report
-                          </Button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-            </TabsContent>
-          </Tabs>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Race Standings */}
+      {/* Our Goals */}
       <section className="py-20 md:py-32 bg-black">
         <div className="container px-4 md:px-6">
           <div className="text-center mb-16 space-y-4">
-            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">2025 Season</div>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Current Standings</h2>
+            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Team Objectives</div>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Our Racing Goals</h2>
             <p className="text-muted-foreground text-lg max-w-[800px] mx-auto">
-              Track our team's performance in the national Electrathon championship.
+              As we embark on our first season, we've set ambitious goals for our team's performance.
             </p>
           </div>
 
-          <div className="max-w-3xl mx-auto bg-background/5 backdrop-blur-sm rounded-xl overflow-hidden">
-            <div className="p-6 border-b border-primary/20">
-              <h3 className="text-xl font-bold">2025 Team Standings</h3>
-            </div>
-            <div className="p-6">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center mr-4">
-                      <span className="font-bold text-primary-foreground">1</span>
-                    </div>
-                    <span className="font-medium">Westside Technical</span>
-                  </div>
-                  <span className="font-bold">42 pts</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <div className="w-8 h-8 rounded-full bg-primary/80 flex items-center justify-center mr-4">
-                      <span className="font-bold text-primary-foreground">2</span>
-                    </div>
-                    <span className="font-medium">Our Team</span>
-                  </div>
-                  <span className="font-bold">38 pts</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <div className="w-8 h-8 rounded-full bg-primary/60 flex items-center justify-center mr-4">
-                      <span className="font-bold text-primary-foreground">3</span>
-                    </div>
-                    <span className="font-medium">Eastside Academy</span>
-                  </div>
-                  <span className="font-bold">35 pts</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center mr-4">
-                      <span className="font-bold">4</span>
-                    </div>
-                    <span className="font-medium">Northern High</span>
-                  </div>
-                  <span className="font-bold">29 pts</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center mr-4">
-                      <span className="font-bold">5</span>
-                    </div>
-                    <span className="font-medium">Southern Tech</span>
-                  </div>
-                  <span className="font-bold">24 pts</span>
-                </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-background/5 backdrop-blur-sm rounded-xl p-6 space-y-4">
+              <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                <Trophy className="h-6 w-6 text-primary" />
               </div>
+              <h3 className="text-xl font-bold">Complete Waterloo Race</h3>
+              <p className="text-muted-foreground">
+                Successfully complete all laps at our debut race at the University of Waterloo with our car performing reliably.
+              </p>
+            </div>
+            <div className="bg-background/5 backdrop-blur-sm rounded-xl p-6 space-y-4">
+              <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                <Target className="h-6 w-6 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold">Energy Efficiency</h3>
+              <p className="text-muted-foreground">
+                Achieve top-tier energy efficiency ratings by optimizing our motor control systems and vehicle aerodynamics.
+              </p>
+            </div>
+            <div className="bg-background/5 backdrop-blur-sm rounded-xl p-6 space-y-4">
+              <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                <Award className="h-6 w-6 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold">Technical Innovation</h3>
+              <p className="text-muted-foreground">
+                Receive recognition for our technical innovations in vehicle design, specifically our custom battery management system.
+              </p>
             </div>
           </div>
         </div>
@@ -360,8 +261,8 @@ export default function RacesPage() {
             </div>
             <div className="relative h-[400px] rounded-xl overflow-hidden">
               <Image
-                src="/placeholder.svg?height=400&width=600"
-                alt="Electrathon race in action"
+                src="/images/cars/IMG_0355.jpg"
+                alt="Our electrathon vehicle"
                 fill
                 className="object-cover"
               />
@@ -370,18 +271,23 @@ export default function RacesPage() {
         </div>
       </section>
 
-      {/* Volunteer CTA */}
+      {/* Sponsor CTA */}
       <section className="py-20 md:py-32 bg-primary/10">
         <div className="container px-4 md:px-6 text-center">
-          <div className="max-w-2xl mx-auto space-y-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Volunteer at Our Races</h2>
+          <div className="max-w-3xl mx-auto space-y-6">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Support Our Racing Journey</h2>
             <p className="text-muted-foreground text-lg">
-              We're always looking for volunteers to help at our race events. From timing and scoring to pit crew
-              assistance, there are many ways to get involved!
+              We're seeking sponsors to help fund our first racing season. Your support helps us purchase materials, improve our vehicle, and compete at a higher level. In return, we offer brand visibility and association with STEM education and sustainable technology.
             </p>
-            <Button size="lg" className="rounded-full">
-              Volunteer Sign-Up
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="rounded-full"
+                onClick={() => window.location.href = 'https://hcb.hackclub.com/donations/start/woss-electrathon'}>
+                Become a Sponsor
+              </Button>
+              <Button variant="outline" size="lg" className="rounded-full">
+                Contact Our Team
+              </Button>
+            </div>
           </div>
         </div>
       </section>

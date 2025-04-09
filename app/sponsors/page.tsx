@@ -1,6 +1,8 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 
+// put this link in somehwere https://hcb.hackclub.com/donations/start/woss-electrathon
+
 export default function SponsorsPage() {
   const sponsors = [
     {
@@ -201,90 +203,99 @@ export default function SponsorsPage() {
             <div className="space-y-6">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Become a Sponsor</h2>
               <p className="text-muted-foreground text-lg">
-                Support the next generation of engineers and sustainable technology by sponsoring our Electrathon Racing
-                Team. We offer various sponsorship tiers with different benefits.
+              Support the next generation of engineers and sustainable technology by sponsoring our Electrathon Racing
+              Team. We offer various sponsorship tiers with different benefits.
               </p>
               <div className="space-y-4">
-                <div className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-primary/20 flex items-center justify-center mt-0.5 mr-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-primary"
-                    >
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                  </div>
-                  <p>Brand visibility on our vehicle, team uniforms, and website</p>
+              <div className="flex items-start">
+              <div className="h-6 w-6 rounded-full bg-primary/20 flex items-center justify-center mt-0.5 mr-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                  className="text-primary"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
                 </div>
-                <div className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-primary/20 flex items-center justify-center mt-0.5 mr-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-primary"
-                    >
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                  </div>
-                  <p>Opportunities to engage with talented engineering students</p>
-                </div>
-                <div className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-primary/20 flex items-center justify-center mt-0.5 mr-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-primary"
-                    >
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                  </div>
-                  <p>Demonstrate your commitment to sustainability and STEM education</p>
-                </div>
-                <div className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-primary/20 flex items-center justify-center mt-0.5 mr-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-primary"
-                    >
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                  </div>
-                  <p>Tax benefits for supporting educational initiatives</p>
-                </div>
+                <p>Brand visibility on our vehicle, team uniforms, and website</p>
               </div>
-              <Button size="lg" className="rounded-full">
-                Request Sponsorship Information
+              <div className="flex items-start">
+                <div className="h-6 w-6 rounded-full bg-primary/20 flex items-center justify-center mt-0.5 mr-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-primary"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                </div>
+                <p>Opportunities to engage with talented engineering students</p>
+              </div>
+              <div className="flex items-start">
+                <div className="h-6 w-6 rounded-full bg-primary/20 flex items-center justify-center mt-0.5 mr-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-primary"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                </div>
+                <p>Demonstrate your commitment to sustainability and STEM education</p>
+              </div>
+              <div className="flex items-start">
+                <div className="h-6 w-6 rounded-full bg-primary/20 flex items-center justify-center mt-0.5 mr-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-primary"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                </div>
+                <p>Tax benefits for supporting educational initiatives</p>
+              </div>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" className="rounded-full" asChild>
+                <a href="/images/sponsorship.pdf" target="_blank" rel="noopener noreferrer">
+                  View Sponsorship Package
+                </a>
+                </Button>
+              <Button size="lg" className="rounded-full" variant="secondary" asChild>
+                <a href="https://hcb.hackclub.com/donations/start/woss-electrathon" target="_blank" rel="noopener noreferrer">
+                Donate Now
+                </a>
               </Button>
+              </div>
             </div>
             <div className="relative h-[400px] rounded-xl overflow-hidden">
               <Image

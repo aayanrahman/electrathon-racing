@@ -21,15 +21,15 @@ export default function TeamPage() {
   const teamMembers: TeamMember[] = [
     {
       id: 1,
-      name: "Alex Johnson",
+      name: "Zane Beeai",
       role: "Team Captain & Driver",
       number: 1,
-      image: "/placeholder.svg?height=600&width=400",
+      image: "/images/team/zane.webp?height=600&width=400",
       bio: "Alex has been with the team since its founding and has led us to multiple victories. With 3 years of racing experience, Alex specializes in energy management and race strategy.",
     },
     {
       id: 2,
-      name: "Jamie Smith",
+      name: "Vidyith",
       role: "Lead Engineer",
       number: 22,
       image: "/placeholder.svg?height=600&width=400",
@@ -37,18 +37,18 @@ export default function TeamPage() {
     },
     {
       id: 3,
-      name: "Taylor Williams",
-      role: "Battery Specialist",
+      name: "Ahmad Arab",
+      role: "CAD Specialist",
       number: 33,
-      image: "/placeholder.svg?height=600&width=400",
+      image: "/images/team/ahmad.jpeg?height=600&width=400",
       bio: "Taylor's innovations in battery management have extended our range by 15 miles. Specializing in electrical engineering, Taylor ensures our power systems are both efficient and reliable.",
     },
     {
       id: 4,
-      name: "Morgan Lee",
+      name: "Aayan Rahman",
       role: "Driver",
       number: 44,
-      image: "/placeholder.svg?height=600&width=400",
+      image: "/images/team/aayan.jpeg?height=600&width=400",
       bio: "Morgan joined the team last year and has already secured two podium finishes. Known for smooth driving style that maximizes efficiency while maintaining competitive speeds.",
     },
   ]
@@ -130,31 +130,40 @@ export default function TeamPage() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
         <div className="space-y-6">
           <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
-          Team Achievements
+          Support Our Journey
           </div>
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Our Track Record</h2>
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Help Us Make History</h2>
           <p className="text-muted-foreground text-lg">
-          Since our founding, we've consistently improved our performance and standings in the national
-          Electrathon circuit.
+          We're a new team with big ambitions in the Electrathon racing circuit. To compete at our best,
+          we need support from our community and sponsors.
           </p>
           <div className="grid grid-cols-2 gap-6">
           <div className="space-y-2">
-            <div className="text-4xl font-bold text-primary">8</div>
-            <p className="text-muted-foreground">Podium Finishes</p>
+            <div className="text-4xl font-bold text-primary">$5K</div>
+            <p className="text-muted-foreground">Funding Goal</p>
           </div>
           <div className="space-y-2">
-            <div className="text-4xl font-bold text-primary">3</div>
-            <p className="text-muted-foreground">First Place Wins</p>
+            <div className="text-4xl font-bold text-primary">20+</div>
+            <p className="text-muted-foreground">Team Members</p>
           </div>
           <div className="space-y-2">
-            <div className="text-4xl font-bold text-primary">15%</div>
-            <p className="text-muted-foreground">Efficiency Improvement</p>
+            <div className="text-4xl font-bold text-primary">100%</div>
+            <p className="text-muted-foreground">Student-Led</p>
           </div>
           <div className="space-y-2">
-            <div className="text-4xl font-bold text-primary">2</div>
-            <p className="text-muted-foreground">Design Awards</p>
+            <div className="text-4xl font-bold text-primary">2024</div>
+            <p className="text-muted-foreground">Competition Year</p>
           </div>
           </div>
+            <Button
+            variant="outline"
+            className="mt-4"
+            onClick={() => window.location.href = 'https://hcb.hackclub.com/donations/start/woss-electrathon'}
+            // Or for external links:
+            // onClick={() => window.open('https://example.com', '_blank')}
+            >
+            Become a Sponsor
+            </Button>
         </div>
         <div className="relative h-[400px] rounded-xl overflow-hidden">
           <Image src="/images/team/waterloo.jpg?height=400&width=600" alt="Team celebration" fill className="object-cover" />

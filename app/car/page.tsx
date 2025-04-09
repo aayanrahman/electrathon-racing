@@ -102,11 +102,7 @@ export default function CarPage() {
                   </div>
                   <div className="space-y-1">
                     <p className="text-sm text-muted-foreground">Height</p>
-<<<<<<< Updated upstream
-                    <p className="text-lg font-medium">46 inches</p>
-=======
                     <p className="text-lg font-medium">48 inches</p>
->>>>>>> Stashed changes
                   </div>
                   <div className="space-y-1">
                     <p className="text-sm text-muted-foreground">Frame Weight</p>
@@ -146,11 +142,7 @@ export default function CarPage() {
                   </div>
                   <div className="space-y-1">
                     <p className="text-sm text-muted-foreground">Battery Capacity</p>
-<<<<<<< Updated upstream
-                    <p className="text-lg font-medium">47 AH</p>
-=======
                     <p className="text-lg font-medium">48 AH</p>
->>>>>>> Stashed changes
                   </div>
                   <div className="space-y-1">
                     <p className="text-sm text-muted-foreground">Motor Type</p>

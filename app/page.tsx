@@ -10,7 +10,7 @@ export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null)
   const featuresRef = useRef<HTMLDivElement>(null)
   const statsRef = useRef<HTMLDivElement>(null)
-  const eventsRef = useRef<HTMLDivElement>(null)
+  const sponsorshipRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,7 +21,7 @@ export default function Home() {
         heroRef.current.style.transform = `translateY(${scrollY * 0.2}px)`
       }
       // Fade in elements as they come into view
-      ;[featuresRef, statsRef, eventsRef].forEach((ref) => {
+      ;[featuresRef, statsRef, sponsorshipRef].forEach((ref) => {
         if (ref.current) {
           const rect = ref.current.getBoundingClientRect()
           const isInView = rect.top < window.innerHeight * 0.75 && rect.bottom > 0
@@ -55,21 +55,20 @@ export default function Home() {
         <div className="container relative z-10 px-4 md:px-6 pt-20">
           <div className="max-w-3xl mx-auto text-center space-y-8">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-              POWERING THE FUTURE OF ELECTRIC RACING
+              HELP US BUILD THE FUTURE OF ELECTRIC RACING
             </h1>
             <p className="text-xl text-muted-foreground max-w-[700px] mx-auto">
-              Innovation. Sustainability. Speed. Our school Electrathon team is pushing the boundaries of electric
-              vehicle technology.
+              We're a new school Electrathon team seeking sponsors to help turn our innovative designs into reality. Join us on our journey.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link href="/team">
+              <Link href="/sponsors">
                 <Button size="lg" className="rounded-full">
-                  Meet The Team
+                  Become a Sponsor
                 </Button>
               </Link>
-              <Link href="/sponsors">
+              <Link href="/team">
                 <Button size="lg" variant="outline" className="rounded-full">
-                  Our Sponsors
+                  Meet Our Team
                 </Button>
               </Link>
             </div>
@@ -88,26 +87,22 @@ export default function Home() {
             <div className="space-y-6">
               <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">About Us</div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Driving Innovation in Electric Racing
+                Building Our First Electric Racing Vehicle
               </h2>
               <p className="text-muted-foreground text-lg">
-                {/*TO DO: Change the description here  */}
-                Our Electrathon Racing Team is a group of dedicated students passionate about sustainable technology and
-                high-performance electric vehicles. We design, build, and race our own electric car, competing against
-                other schools in endurance races.
+                Our newly formed Electrathon Racing Team consists of passionate students with a vision to design and build an innovative electric race car from the ground up. We're currently in the development phase and seeking support to bring our designs to life.
               </p>
               <p className="text-muted-foreground text-lg">
-                Founded in 2023, our team has quickly risen to become one of the top competitors in the national
-                Electrathon circuit, with multiple podium finishes and a reputation for innovative design solutions.
+                Founded in 2023, we're combining classroom knowledge with hands-on engineering to create a sustainable, high-performance electric vehicle that will compete in future Electrathon competitions.
               </p>
               <Button variant="default" className="rounded-full group">
-                Learn More <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                Our Vision <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </div>
             <div className="relative h-[400px] md:h-[500px] rounded-xl overflow-hidden">
               <Image
                 src="/images/team.webp?height=500&width=500"
-                alt="Team working on Electrathon car"
+                alt="Team working on Electrathon car design"
                 fill
                 className="object-cover"
               />
@@ -116,17 +111,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Car Features Section */}
+      {/* Car Design Goals Section */}
       <section ref={featuresRef} className="py-20 md:py-32 bg-black opacity-0 transition-opacity duration-1000">
         <div className="container px-4 md:px-6">
           <div className="text-center mb-16 space-y-4">
-            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Our Vehicle</div>
+            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Our Design</div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              E-VOLT X1: Built for Performance
+              WarRig X1: Our Vision
             </h2>
             <p className="text-muted-foreground text-lg max-w-[800px] mx-auto">
-              Our latest Electrathon vehicle combines cutting-edge technology with efficient design to maximize range
-              and speed.
+              We're designing our first Electrathon vehicle with cutting-edge technology and efficient design principles to maximize performance.
             </p>
           </div>
 
@@ -151,8 +145,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold">Aerodynamic Design</h3>
               <p className="text-muted-foreground">
-                Ultra-efficient aerodynamics with a drag coefficient of just 0.15, minimizing resistance and maximizing
-                range.
+                We're engineering an ultra-efficient aerodynamic profile to minimize resistance and maximize range, targeting a drag coefficient of just 0.15.
               </p>
             </div>
 
@@ -180,7 +173,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold">Advanced Battery System</h3>
               <p className="text-muted-foreground">
-                Custom-designed 48V lithium-ion battery pack with integrated thermal management for optimal performance.
+                Plans for a custom-designed 48V lithium-ion battery pack with integrated thermal management for optimal performance and safety.
               </p>
             </div>
 
@@ -198,14 +191,13 @@ export default function Home() {
                   strokeLinejoin="round"
                   className="text-primary"
                 >
-                  <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+                  <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1-1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1-1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
                   <circle cx="12" cy="12" r="3"></circle>
                 </svg>
               </div>
               <h3 className="text-xl font-bold">Lightweight Materials</h3>
               <p className="text-muted-foreground">
-                Carbon fiber chassis and body panels reduce weight to just 175 pounds, improving efficiency and
-                handling.
+                Aiming to use carbon fiber chassis and body panels to achieve a target weight of just 175 pounds, improving efficiency and handling.
               </p>
             </div>
           </div>
@@ -213,48 +205,52 @@ export default function Home() {
           <div className="mt-16 text-center">
             <Link href="/car">
               <Button variant="outline" className="rounded-full">
-                Explore Full Specifications
+                See Our Design Plans
               </Button>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* Goals Section */}
       <section
         ref={statsRef}
         className="py-20 md:py-32 bg-gradient-to-b from-background to-background/80 opacity-0 transition-opacity duration-1000"
       >
         <div className="container px-4 md:px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Our Performance Targets</h2>
+            <p className="text-muted-foreground text-lg mt-4">With your sponsorship, we aim to achieve these milestones</p>
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div className="space-y-2">
-              <h3 className="text-5xl font-bold text-primary">85</h3>
-              <p className="text-muted-foreground">Miles Per Charge</p>
+              <h3 className="text-5xl font-bold text-primary">85+</h3>
+              <p className="text-muted-foreground">Miles Per Charge Goal</p>
             </div>
             <div className="space-y-2">
               <h3 className="text-5xl font-bold text-primary">45</h3>
-              <p className="text-muted-foreground">MPH Top Speed</p>
+              <p className="text-muted-foreground">MPH Target Speed</p>
             </div>
             <div className="space-y-2">
               <h3 className="text-5xl font-bold text-primary">12</h3>
               <p className="text-muted-foreground">Team Members</p>
             </div>
             <div className="space-y-2">
-              <h3 className="text-5xl font-bold text-primary">8</h3>
-              <p className="text-muted-foreground">Podium Finishes</p>
+              <h3 className="text-5xl font-bold text-primary">2024</h3>
+              <p className="text-muted-foreground">First Race Goal</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Upcoming Events Section */}
-      <section ref={eventsRef} className="py-20 md:py-32 bg-background opacity-0 transition-opacity duration-1000">
+      {/* Sponsorship Opportunities Section */}
+      <section ref={sponsorshipRef} className="py-20 md:py-32 bg-background opacity-0 transition-opacity duration-1000">
         <div className="container px-4 md:px-6">
           <div className="text-center mb-16 space-y-4">
-            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Race Calendar</div>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Upcoming Races</h2>
+            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Sponsor Us</div>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Sponsorship Opportunities</h2>
             <p className="text-muted-foreground text-lg max-w-[800px] mx-auto">
-              Follow our team as we compete across the country in the national Electrathon circuit.
+              Partner with us to support STEM education and sustainable technology innovation.
             </p>
           </div>
 
@@ -263,21 +259,21 @@ export default function Home() {
               <div className="relative h-48">
                 <Image
                   src="/placeholder.svg?height=200&width=400"
-                  alt="Race track"
+                  alt="Bronze sponsorship"
                   fill
                   className="object-cover transition-transform group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
                 <div className="absolute bottom-4 left-4 bg-background/80 backdrop-blur-sm rounded-lg p-2">
-                  <p className="text-sm font-medium">APR 15, 2025</p>
+                  <p className="text-sm font-medium">BRONZE TIER</p>
                 </div>
               </div>
               <div className="p-6 space-y-4">
-                <h3 className="text-xl font-bold">State Championship</h3>
-                <p className="text-muted-foreground">Central City Speedway, 10:00 AM - 4:00 PM</p>
-                <Link href="/races">
+                <h3 className="text-xl font-bold">Bronze Sponsor</h3>
+                <p className="text-muted-foreground">Logo on our website and small logo placement on the vehicle.</p>
+                <Link href="/sponsors#bronze">
                   <Button variant="outline" className="w-full">
-                    Event Details
+                    Details
                   </Button>
                 </Link>
               </div>
@@ -287,21 +283,21 @@ export default function Home() {
               <div className="relative h-48">
                 <Image
                   src="/placeholder.svg?height=200&width=400"
-                  alt="Race track"
+                  alt="Silver sponsorship"
                   fill
                   className="object-cover transition-transform group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
                 <div className="absolute bottom-4 left-4 bg-background/80 backdrop-blur-sm rounded-lg p-2">
-                  <p className="text-sm font-medium">MAY 22, 2025</p>
+                  <p className="text-sm font-medium">SILVER TIER</p>
                 </div>
               </div>
               <div className="p-6 space-y-4">
-                <h3 className="text-xl font-bold">Regional Qualifier</h3>
-                <p className="text-muted-foreground">Westlake Circuit, 9:00 AM - 3:00 PM</p>
-                <Link href="/races">
+                <h3 className="text-xl font-bold">Silver Sponsor</h3>
+                <p className="text-muted-foreground">Medium logo placement on vehicle and featured in team presentations.</p>
+                <Link href="/sponsors#silver">
                   <Button variant="outline" className="w-full">
-                    Event Details
+                    Details
                   </Button>
                 </Link>
               </div>
@@ -311,21 +307,21 @@ export default function Home() {
               <div className="relative h-48">
                 <Image
                   src="/placeholder.svg?height=200&width=400"
-                  alt="Race track"
+                  alt="Gold sponsorship"
                   fill
                   className="object-cover transition-transform group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
                 <div className="absolute bottom-4 left-4 bg-background/80 backdrop-blur-sm rounded-lg p-2">
-                  <p className="text-sm font-medium">JUN 10, 2025</p>
+                  <p className="text-sm font-medium">GOLD TIER</p>
                 </div>
               </div>
               <div className="p-6 space-y-4">
-                <h3 className="text-xl font-bold">National Finals</h3>
-                <p className="text-muted-foreground">Electrathon Speedway, 11:00 AM - 5:00 PM</p>
-                <Link href="/races">
+                <h3 className="text-xl font-bold">Gold Sponsor</h3>
+                <p className="text-muted-foreground">Prominent logo placement, media mentions, and exclusive team events.</p>
+                <Link href="/sponsors#gold">
                   <Button variant="outline" className="w-full">
-                    Event Details
+                    Details
                   </Button>
                 </Link>
               </div>
@@ -339,25 +335,23 @@ export default function Home() {
         <div className="container px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Join Our Team or Become a Sponsor</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Help Us Build The Future</h2>
               <p className="text-muted-foreground text-lg">
-                We're always looking for passionate students to join our team and sponsors to support our mission.
-                Whether you're interested in engineering, design, marketing, or management, there's a place for you on
-                our team.
+                Your sponsorship will directly support our students in gaining real-world engineering experience while developing sustainable transportation technology. We offer various sponsorship levels to fit your organization's goals and budget.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="rounded-full">
-                  Join The Team
+                  Become a Sponsor
                 </Button>
                 <Button size="lg" variant="outline" className="rounded-full">
-                  Become a Sponsor
+                  Contact Our Team
                 </Button>
               </div>
             </div>
             <div className="relative h-[400px] rounded-xl overflow-hidden">
               <Image
                 src="/images/weld.jpg?height=400&width=600"
-                alt="Team members working together"
+                alt="Team members working on designs"
                 fill
                 className="object-cover"
               />
