@@ -93,11 +93,13 @@ export default function Home() {
                 Our newly formed Electrathon Racing Team consists of passionate students with a vision to design and build an innovative electric race car from the ground up. We're currently in the development phase and seeking support to bring our designs to life.
               </p>
               <p className="text-muted-foreground text-lg">
-                Founded in 2023, we're combining classroom knowledge with hands-on engineering to create a sustainable, high-performance electric vehicle that will compete in future Electrathon competitions.
+                Founded in 2024, we're combining classroom knowledge with hands-on engineering to create a sustainable, high-performance electric vehicle that will compete in future Electrathon competitions.
               </p>
-              <Button variant="default" className="rounded-full group">
-                Our Vision <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
+                <Link href="/car" className="mt-6 inline-block">
+                <Button variant="default" className="rounded-full group">
+                  Our Vision <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+                </Link>
             </div>
             <div className="relative h-[400px] md:h-[500px] rounded-xl overflow-hidden">
               <Image
@@ -196,9 +198,9 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-xl font-bold">Lightweight Materials</h3>
-              <p className="text-muted-foreground">
-                Aiming to use carbon fiber chassis and body panels to achieve a target weight of just 175 pounds, improving efficiency and handling.
-              </p>
+                <p className="text-muted-foreground">
+                Utilizing lightweight aluminum for chassis and body panels to achieve a target weight of just 30 pounds, maximizing efficiency and performance.
+                </p>
             </div>
           </div>
 
@@ -236,7 +238,7 @@ export default function Home() {
               <p className="text-muted-foreground">Team Members</p>
             </div>
             <div className="space-y-2">
-              <h3 className="text-5xl font-bold text-primary">2024</h3>
+              <h3 className="text-5xl font-bold text-primary">2025</h3>
               <p className="text-muted-foreground">First Race Goal</p>
             </div>
           </div>
@@ -247,85 +249,118 @@ export default function Home() {
       <section ref={sponsorshipRef} className="py-20 md:py-32 bg-background opacity-0 transition-opacity duration-1000">
         <div className="container px-4 md:px-6">
           <div className="text-center mb-16 space-y-4">
-            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Sponsor Us</div>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Sponsorship Opportunities</h2>
-            <p className="text-muted-foreground text-lg max-w-[800px] mx-auto">
-              Partner with us to support STEM education and sustainable technology innovation.
-            </p>
+        <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Sponsor Us</div>
+        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Sponsorship Opportunities</h2>
+        <p className="text-muted-foreground text-lg max-w-[800px] mx-auto">
+          Partner with us to support STEM education and sustainable technology innovation.
+        </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-background border rounded-xl overflow-hidden group hover:border-primary transition-colors">
-              <div className="relative h-48">
-                <Image
-                  src="/placeholder.svg?height=200&width=400"
-                  alt="Bronze sponsorship"
-                  fill
-                  className="object-cover transition-transform group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
-                <div className="absolute bottom-4 left-4 bg-background/80 backdrop-blur-sm rounded-lg p-2">
-                  <p className="text-sm font-medium">BRONZE TIER</p>
-                </div>
-              </div>
-              <div className="p-6 space-y-4">
-                <h3 className="text-xl font-bold">Bronze Sponsor</h3>
-                <p className="text-muted-foreground">Logo on our website and small logo placement on the vehicle.</p>
-                <Link href="/sponsors#bronze">
-                  <Button variant="outline" className="w-full">
-                    Details
-                  </Button>
-                </Link>
-              </div>
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="bg-background border rounded-xl overflow-hidden group hover:border-primary transition-colors">
+            <div className="relative h-48">
+            <div className="absolute inset-0 flex items-center justify-center bg-primary/10">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="64"
+            height="64"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="text-primary"
+          >
+            <circle cx="12" cy="8" r="6"/>
+            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+          </svg>
             </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
+            <div className="absolute bottom-4 left-4 bg-background/80 backdrop-blur-sm rounded-lg p-2">
+          <p className="text-sm font-medium">BRONZE TIER</p>
+            </div>
+          </div>
+          <div className="p-6 space-y-4">
+            <h3 className="text-xl font-bold">Bronze Sponsor</h3>
+            <p className="text-muted-foreground">Logo on our website and small logo placement on the vehicle.</p>
+            <Link href="/sponsors#bronze">
+          <Button variant="outline" className="w-full">
+            Details
+          </Button>
+            </Link>
+          </div>
+        </div>
 
-            <div className="bg-background border rounded-xl overflow-hidden group hover:border-primary transition-colors">
-              <div className="relative h-48">
-                <Image
-                  src="/placeholder.svg?height=200&width=400"
-                  alt="Silver sponsorship"
-                  fill
-                  className="object-cover transition-transform group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
-                <div className="absolute bottom-4 left-4 bg-background/80 backdrop-blur-sm rounded-lg p-2">
-                  <p className="text-sm font-medium">SILVER TIER</p>
-                </div>
-              </div>
-              <div className="p-6 space-y-4">
-                <h3 className="text-xl font-bold">Silver Sponsor</h3>
-                <p className="text-muted-foreground">Medium logo placement on vehicle and featured in team presentations.</p>
-                <Link href="/sponsors#silver">
-                  <Button variant="outline" className="w-full">
-                    Details
-                  </Button>
-                </Link>
-              </div>
+        <div className="bg-background border rounded-xl overflow-hidden group hover:border-primary transition-colors">
+          <div className="relative h-48">
+            <div className="absolute inset-0 flex items-center justify-center bg-primary/10">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="64"
+            height="64"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="text-primary"
+          >
+            <path d="M12.7 2.7c-.9-1.1-2.5-1.1-3.4 0L1.7 12c-.9 1.1-.2 2.7 1.2 2.7h18.2c1.4 0 2.1-1.6 1.2-2.7l-7.6-9.3z"/>
+            <path d="M12 2v20"/>
+          </svg>
             </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
+            <div className="absolute bottom-4 left-4 bg-background/80 backdrop-blur-sm rounded-lg p-2">
+          <p className="text-sm font-medium">SILVER TIER</p>
+            </div>
+          </div>
+          <div className="p-6 space-y-4">
+            <h3 className="text-xl font-bold">Silver Sponsor</h3>
+            <p className="text-muted-foreground">Medium logo placement on vehicle and featured in team presentations.</p>
+            <Link href="/sponsors#silver">
+          <Button variant="outline" className="w-full">
+            Details
+          </Button>
+            </Link>
+          </div>
+        </div>
 
-            <div className="bg-background border rounded-xl overflow-hidden group hover:border-primary transition-colors">
-              <div className="relative h-48">
-                <Image
-                  src="/placeholder.svg?height=200&width=400"
-                  alt="Gold sponsorship"
-                  fill
-                  className="object-cover transition-transform group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
-                <div className="absolute bottom-4 left-4 bg-background/80 backdrop-blur-sm rounded-lg p-2">
-                  <p className="text-sm font-medium">GOLD TIER</p>
-                </div>
-              </div>
-              <div className="p-6 space-y-4">
-                <h3 className="text-xl font-bold">Gold Sponsor</h3>
-                <p className="text-muted-foreground">Prominent logo placement, media mentions, and exclusive team events.</p>
-                <Link href="/sponsors#gold">
-                  <Button variant="outline" className="w-full">
-                    Details
-                  </Button>
-                </Link>
-              </div>
+        <div className="bg-background border rounded-xl overflow-hidden group hover:border-primary transition-colors">
+          <div className="relative h-48">
+            <div className="absolute inset-0 flex items-center justify-center bg-primary/10">
+          <svg
+            xmlns="http://www.w3.org/2000/svg" 
+            width="64"
+            height="64"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="text-primary"
+          >
+            <circle cx="12" cy="12" r="8"/>
+            <path d="m8 12 3 3 5-5"/>
+          </svg>
             </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
+            <div className="absolute bottom-4 left-4 bg-background/80 backdrop-blur-sm rounded-lg p-2">
+          <p className="text-sm font-medium">GOLD TIER</p>
+            </div>
+          </div>
+          <div className="p-6 space-y-4">
+            <h3 className="text-xl font-bold">Gold Sponsor</h3>
+            <p className="text-muted-foreground">Prominent logo placement, media mentions, and exclusive team events.</p>
+            <Link href="/sponsors#gold">
+          <Button variant="outline" className="w-full">
+            Details
+          </Button>
+            </Link>
+          </div>
+        </div>
           </div>
         </div>
       </section>

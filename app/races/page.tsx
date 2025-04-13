@@ -23,34 +23,14 @@ export default function RacesPage() {
   const races: Race[] = [
     {
       id: 1,
-      name: "University of Waterloo ElectrON",
-      date: "April 27, 2024",
+      name: "University of Waterloo Electrathon",
+      date: "May 2025",
       location: "University of Waterloo, Engineering 5",
       time: "9:00 AM - 5:00 PM",
       image: "/images/events/blud.png?height=400&width=800",
       description:
-        "Our team's first official competition! The University of Waterloo ElectrON brings together high school teams from across the region to compete in an exciting day of electric vehicle racing. This event will be our debut and a fantastic opportunity to showcase our vehicle's capabilities.",
+        "Our team's first official competition! The University of Waterloo Electrathon brings together high school teams from across the region to compete in an exciting day of electric vehicle racing. This event will be our debut and a fantastic opportunity to showcase our vehicle's capabilities.",
       isHighlighted: true,
-    },
-    {
-      id: 2,
-      name: "Regional High School Exhibition",
-      date: "May 18, 2024",
-      location: "WOSS Campus",
-      time: "10:00 AM - 2:00 PM",
-      image: "/placeholder.svg?height=400&width=800",
-      description:
-        "A showcase event where we'll demonstrate our electric vehicle to other high schools in the area. This non-competitive exhibition is aimed at inspiring other schools to start their own teams and join the growing electrathon movement.",
-    },
-    {
-      id: 3,
-      name: "Technology Expo",
-      date: "June 8, 2024",
-      location: "Metro Convention Center",
-      time: "9:00 AM - 4:00 PM",
-      image: "/placeholder.svg?height=400&width=800",
-      description:
-        "We'll be presenting our vehicle at the annual Technology Expo, connecting with industry professionals and potential sponsors. This is a great opportunity to highlight the engineering talent of our team and secure additional support for future competitions.",
     }
   ]
 
@@ -82,7 +62,7 @@ export default function RacesPage() {
       <section className="py-20 md:py-32 bg-background">
         <div className="container px-4 md:px-6">
           <div className="text-center mb-16 space-y-4">
-            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">2024 Season</div>
+            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">5 Season</div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Upcoming Events</h2>
             <p className="text-muted-foreground text-lg max-w-[800px] mx-auto">
               Join us as we debut our electric vehicle and showcase our engineering talent.
