@@ -3,7 +3,6 @@
 # dependencies
 /node_modules
 
-/public/images/cars/Assembly 1.gltf
 # next.js
 /.next/
 /out/
