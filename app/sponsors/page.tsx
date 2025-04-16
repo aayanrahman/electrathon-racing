@@ -6,64 +6,28 @@ import { Button } from "@/components/ui/button"
 export default function SponsorsPage() {
   const sponsors = [
     {
-      name: "EnergyTech",
+      name: "Altura Power",
       tier: "platinum",
-      logo: "/placeholder.svg?height=120&width=240",
-      description: "Leading provider of sustainable energy solutions",
+      logo: "/images/sponsers/atura.webp?height=120&width=240",
+      description: "Pioneering the future of renewable energy technology and sustainable power solutions.",
     },
     {
-      name: "VoltPower",
-      tier: "platinum",
-      logo: "/placeholder.svg?height=120&width=240",
-      description: "Battery technology innovators",
-    },
-    {
-      name: "SpeedWorks",
+      name: "HackClub Bank",
       tier: "gold",
-      logo: "/placeholder.svg?height=120&width=240",
-      description: "Performance engineering specialists",
+      logo: "/images/sponsers/hcb.png?height=120&width=240",
+      description: "Empowering student projects through accessible fiscal sponsorship and financial tools.",
     },
     {
-      name: "AeroDesign",
-      tier: "gold",
-      logo: "/placeholder.svg?height=120&width=240",
-      description: "Aerodynamics consulting firm",
-    },
-    {
-      name: "TechEd Solutions",
-      tier: "gold",
-      logo: "/placeholder.svg?height=120&width=240",
-      description: "Educational technology company",
-    },
-    {
-      name: "GreenMobility",
+      name: "GitHub",
       tier: "silver",
-      logo: "/placeholder.svg?height=120&width=240",
-      description: "Sustainable transportation advocates",
+      logo: "/images/sponsers/git.png?height=120&width=240",
+      description: "The world's leading platform for software development and collaboration.",
     },
     {
-      name: "CircuitLabs",
-      tier: "silver",
-      logo: "/placeholder.svg?height=120&width=240",
-      description: "Electronics and circuit design",
-    },
-    {
-      name: "CompositeWorks",
-      tier: "silver",
-      logo: "/placeholder.svg?height=120&width=240",
-      description: "Advanced materials manufacturer",
-    },
-    {
-      name: "RacingParts Co.",
+      name: "University of Waterloo Engineering",
       tier: "bronze",
-      logo: "/placeholder.svg?height=120&width=240",
-      description: "Racing components supplier",
-    },
-    {
-      name: "MetalFab Inc.",
-      tier: "bronze",
-      logo: "/placeholder.svg?height=120&width=240",
-      description: "Precision metal fabrication",
+      logo: "/images/sponsers/images.png?height=120&width=240",
+      description: "Canada's largest engineering school, fostering innovation and technical excellence.",
     },
   ]
 

@@ -3,16 +3,112 @@
 import { useState, useEffect, Suspense } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, RefreshCw } from "lucide-react"
 import { Canvas, useLoader } from "@react-three/fiber"
-import { OrbitControls, Html } from "@react-three/drei"
+import { OrbitControls, Html, Box, Sphere } from "@react-three/drei"
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js"
+import * as THREE from "three"
+import { initializeApp } from 'firebase/app'
+import { getStorage, ref, getDownloadURL } from 'firebase/storage'
 
+// Initialize Firebase (move this to a separate file in a real app)
+const firebaseConfig = {
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
+};
+
+// Initialize Firebase
+let firebaseApp;
+let storage;
+try {
+  firebaseApp = initializeApp(firebaseConfig);
+  storage = getStorage(firebaseApp);
+} catch (error) {
+  console.error("Firebase initialization error:", error);
+}
+
+// Create an error boundary component for the 3D model
+function ModelErrorBoundary({ children }: { children: React.ReactNode }) {
+  const [hasError, setHasError] = useState(false)
+  const [errorMessage, setErrorMessage] = useState("")
+
+  useEffect(() => {
+    const handleError = (event: ErrorEvent) => {
+      if (event.message.includes("GLTFLoader") || event.message.includes("model")) {
+        event.preventDefault()
+        setHasError(true)
+        setErrorMessage(event.message)
+      }
+    }
+
+    window.addEventListener("error", handleError)
+    return () => window.removeEventListener("error", handleError)
+  }, [])
+
+  if (hasError) {
+    return (
+      <Html center>
+        <div className="flex flex-col items-center justify-center bg-black/20 backdrop-blur-sm p-6 rounded-lg max-w-md">
+          <p className="text-red-500 mb-4 text-center">Failed to load 3D model</p>
+          <Button onClick={() => window.location.reload()} className="flex items-center gap-2">
+            <RefreshCw className="h-4 w-4" /> Reload Page
+          </Button>
+          <div className="mt-4 text-xs text-muted-foreground text-center">
+            Error details: {errorMessage || "Unknown error"}
+          </div>
+        </div>
+      </Html>
+    )
+  }
+
+  return <>{children}</>
+}
+
+// Separate model loading component to handle errors better
 function Model({ path }: { path: string }) {
-  const gltf = useLoader(GLTFLoader, path)
+  const [modelError, setModelError] = useState<Error | null>(null)
+  
+  // Fix the error by properly configuring the loader
+  const gltf = useLoader(
+    GLTFLoader, 
+    path, 
+    (loader) => {
+      // Add proper loader configuration
+      loader.setCrossOrigin('anonymous');
+    },
+    (error) => {
+      // Fix proper error object handling
+      console.error("GLTF loading error:", error);
+      setModelError(new Error(`Failed to load 3D model: ${error instanceof Error ? error.message : "Unknown error"}`));
+    }
+  )
+
+  if (modelError) throw modelError
+  
   return (
     <>
       <primitive object={gltf.scene} scale={2.0} />
+      <ambientLight intensity={1.5} />
+      <directionalLight position={[5, 5, 5]} intensity={1} />
+      <directionalLight position={[-5, -5, -5]} intensity={0.5} />
+    </>
+  )
+}
+
+// Fallback model to display when loading fails
+function FallbackModel() {
+  return (
+    <>
+      <Box args={[1, 0.5, 2]} position={[0, 0.25, 0]}>
+        <meshStandardMaterial color="#333333" />
+      </Box>
+      <Sphere args={[0.3]} position={[0, 0.5, -0.7]}>
+        <meshStandardMaterial color="#444444" />
+      </Sphere>
       <ambientLight intensity={1.5} />
       <directionalLight position={[5, 5, 5]} intensity={1} />
       <directionalLight position={[-5, -5, -5]} intensity={0.5} />
@@ -34,6 +130,40 @@ function LoadingIndicator() {
 export default function CarPage() {
   const [activeSection, setActiveSection] = useState<string | null>(null)
   const [isVisible, setIsVisible] = useState(false)
+  const [shouldTryModel, setShouldTryModel] = useState(true)
+  const [modelURL, setModelURL] = useState<string>("")
+  const [isLoadingModel, setIsLoadingModel] = useState(true)
+  const [modelLoadError, setModelLoadError] = useState<string | null>(null)
+  const [useFallbackModel, setUseFallbackModel] = useState(false)
+
+  // Simplified model loading with proper error catching
+  useEffect(() => {
+    async function setupModel() {
+      setIsLoadingModel(true);
+      setModelLoadError(null);
+      
+      if (useFallbackModel) {
+        // Use a reliable public model if fallback is requested
+        setModelURL("https://threejs.org/examples/models/gltf/DamagedHelmet/glTF/DamagedHelmet.gltf");
+        setIsLoadingModel(false);
+        return;
+      }
+      
+      try {
+        // Just use your original Firebase URL, but with better error handling
+        const url = "https://firebasestorage.googleapis.com/v0/b/e-thon-website.firebasestorage.app/o/Assembly%201.gltf?alt=media&token=8a0a1c01-e3cb-49d7-95db-403041d5696e";
+        console.log("Using model URL:", url);
+        setModelURL(url);
+        setIsLoadingModel(false);
+      } catch (error) {
+        console.error("Error setting up model:", error);
+        setModelLoadError(error instanceof Error ? error.message : String(error));
+        setIsLoadingModel(false);
+      }
+    }
+    
+    setupModel();
+  }, [useFallbackModel]);
 
   useEffect(() => {
     setIsVisible(true)
@@ -68,7 +198,6 @@ export default function CarPage() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section - Removed pt-16 to allow image to extend under navbar */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
@@ -78,7 +207,6 @@ export default function CarPage() {
             priority
             className="object-cover"
           />
-          {/* Added gradient at top to ensure navbar text remains readable */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-background/40 to-background" />
         </div>
 
@@ -102,7 +230,6 @@ export default function CarPage() {
         </div>
       </section>
 
-      {/* Car Specs Section */}
       <section id="specs" className="py-20 md:py-32 bg-background">
         <div className="container px-4 md:px-6">
           <div className="text-center mb-16 space-y-4">
@@ -194,8 +321,6 @@ export default function CarPage() {
         </div>
       </section>
 
-      {/* Interactive Car Features */}
-      {/* Interactive 3D Model Section */}
       <section id="interactive" className="py-20 md:py-32 bg-background/50">
         <div className="container px-4 md:px-6">
           <div className="text-center mb-16 space-y-4">
@@ -211,57 +336,97 @@ export default function CarPage() {
           </div>
 
           <div className="h-[600px] w-full rounded-xl overflow-hidden bg-black/5">
-            <Canvas camera={{ position: [0, 0, 3], fov: 75 }}>
-              <ambientLight intensity={0.5} />
-              <pointLight position={[10, 10, 10]} />
-              <Suspense fallback={<LoadingIndicator />}>
-                <Model path="/images/cars/Assembly 1.gltf" />
-              </Suspense>
-              <OrbitControls 
-                enableZoom={true}
-                minDistance={2}
-                maxDistance={8}
-                enablePan={true}
-              />
-            </Canvas>
+            {isLoadingModel ? (
+              <div className="h-full flex items-center justify-center">
+                <div className="flex flex-col items-center justify-center">
+                  <div className="w-16 h-16 border-4 border-primary/30 border-t-primary rounded-full animate-spin mb-4"></div>
+                  <p className="text-primary font-medium">Loading Model Data...</p>
+                </div>
+              </div>
+            ) : (
+              <Canvas camera={{ position: [0, 0, 3], fov: 75 }}>
+                <ModelErrorBoundary>
+                  <Suspense fallback={<LoadingIndicator />}>
+                    {shouldTryModel && modelURL ? (
+                      <Model path={modelURL} />
+                    ) : (
+                      <FallbackModel />
+                    )}
+                  </Suspense>
+                </ModelErrorBoundary>
+                <OrbitControls
+                  enableZoom={true}
+                  minDistance={2}
+                  maxDistance={8}
+                  enablePan={true}
+                />
+              </Canvas>
+            )}
+          </div>
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4 mt-4">
+            <div className="text-sm text-center md:text-left text-muted-foreground max-w-md">
+              Showing a placeholder model due to loading issues with the custom model.
+              {modelLoadError && (
+                <span className="block mt-1 text-xs text-red-400">Error: {modelLoadError}</span>
+              )}
+            </div>
+            <div className="flex gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setUseFallbackModel(!useFallbackModel)}
+                className="flex items-center gap-2"
+              >
+                <RefreshCw className="h-4 w-4" />
+                {useFallbackModel ? "Try Primary Model" : "Try Alternative Model"}
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setShouldTryModel(!shouldTryModel)}
+                className="flex items-center gap-2"
+              >
+                <RefreshCw className="h-4 w-4" />
+                {shouldTryModel ? "Use Simplified View" : "Try 3D Model"}
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Next Generation Teaser */}
       <section id="future" className="py-20 md:py-32">
         <div className="container px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-        <div className="space-y-6">
-          <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Looking Ahead</div>
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">The Future: WarRig X2</h2>
-          <p className="text-muted-foreground text-lg">
-            Our engineering team is already working on the next generation of our Electrathon vehicle, with
-            ambitious goals to push the boundaries even further.
-          </p>
-            <ul className="space-y-2">
-            <li className="flex items-center">
-            <div className="h-2 w-2 rounded-full bg-primary mr-2"></div>
-            <span>15% weight reduction through frame redesign</span>
-            </li>
-            <li className="flex items-center">
-            <div className="h-2 w-2 rounded-full bg-primary mr-2"></div>
-            <span>Improved aerodynamics with active elements</span>
-            </li>
-            <li className="flex items-center">
-            <div className="h-2 w-2 rounded-full bg-primary mr-2"></div>
-            <span>Enhanced motor efficiency for better range</span>
-            </li>
-            <li className="flex items-center">
-            <div className="h-2 w-2 rounded-full bg-primary mr-2"></div>
-            <span>Advanced telemetry and race strategy software</span>
-            </li>
-            </ul>
-          <Button className="rounded-full">Join Our Development Team</Button>
-        </div>
-        <div className="relative h-[400px] rounded-xl overflow-hidden bg-gradient-to-r from-background to-primary/20 flex items-center justify-center">
-          <div className="text-6xl font-bold text-primary/20">COMING SOON</div>
-        </div>
+            <div className="space-y-6">
+              <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Looking Ahead</div>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">The Future: WarRig X2</h2>
+              <p className="text-muted-foreground text-lg">
+                Our engineering team is already working on the next generation of our Electrathon vehicle, with
+                ambitious goals to push the boundaries even further.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-center">
+                  <div className="h-2 w-2 rounded-full bg-primary mr-2"></div>
+                  <span>15% weight reduction through frame redesign</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="h-2 w-2 rounded-full bg-primary mr-2"></div>
+                  <span>Improved aerodynamics with active elements</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="h-2 w-2 rounded-full bg-primary mr-2"></div>
+                  <span>Enhanced motor efficiency for better range</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="h-2 w-2 rounded-full bg-primary mr-2"></div>
+                  <span>Advanced telemetry and race strategy software</span>
+                </li>
+              </ul>
+              <Button className="rounded-full">Join Our Development Team</Button>
+            </div>
+            <div className="relative h-[400px] rounded-xl overflow-hidden bg-gradient-to-r from-background to-primary/20 flex items-center justify-center">
+              <div className="text-6xl font-bold text-primary/20">COMING SOON</div>
+            </div>
           </div>
         </div>
       </section>

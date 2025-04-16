@@ -17,6 +17,7 @@ interface TeamMember {
 export default function TeamPage() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
+  const [expandedMember, setExpandedMember] = useState<number | null>(null)
 
   const teamMembers: TeamMember[] = [
     {
@@ -25,15 +26,15 @@ export default function TeamPage() {
       role: "Team Captain & Driver",
       number: 1,
       image: "/images/team/zane.webp?height=600&width=400",
-      bio: "Alex has been with the team since its founding and has led us to multiple victories. With 3 years of racing experience, Alex specializes in energy management and race strategy.",
+      bio: "As team captain, Zane brings leadership and enthusiasm to our first-year team. Working closely with all team members, he helps coordinate our efforts in building our first electric racing vehicle.",
     },
     {
       id: 2,
       name: "Vidyith",
       role: "Lead Engineer",
       number: 22,
-      image: "/placeholder.svg?height=600&width=400",
-      bio: "Jamie oversees all technical aspects of our vehicle design. With a passion for aerodynamics, Jamie has helped reduce our car's drag coefficient by 20% over the last season.",
+      image: "/images/team/Vidyuth.webp?height=600&width=400",
+      bio: "Vidyith leads our engineering initiatives, focusing on understanding and implementing the technical requirements for our first electric racing car. He's passionate about learning vehicle dynamics and electrical systems.",
     },
     {
       id: 3,
@@ -41,7 +42,7 @@ export default function TeamPage() {
       role: "CAD Specialist",
       number: 33,
       image: "/images/team/ahmad.jpeg?height=600&width=400",
-      bio: "Taylor's innovations in battery management have extended our range by 15 miles. Specializing in electrical engineering, Taylor ensures our power systems are both efficient and reliable.",
+      bio: "Ahmad is developing our vehicle's 3D models and technical drawings using CAD software. Though new to racing, his attention to detail and dedication to learning helps ensure our design is both practical and efficient.",
     },
     {
       id: 4,
@@ -49,7 +50,7 @@ export default function TeamPage() {
       role: "Driver",
       number: 44,
       image: "/images/team/aayan.jpeg?height=600&width=400",
-      bio: "Morgan joined the team last year and has already secured two podium finishes. Known for smooth driving style that maximizes efficiency while maintaining competitive speeds.",
+      bio: "Aayan brings enthusiasm and dedication to our team as one of our drivers. While new to electric racing, he's committed to understanding vehicle handling and energy management for optimal race performance.",
     },
   ]
 
@@ -59,6 +60,10 @@ export default function TeamPage() {
 
   const prevSlide = () => {
     setActiveIndex((prevIndex) => (prevIndex - 1 + teamMembers.length) % teamMembers.length)
+  }
+
+  const toggleMemberBio = (id: number) => {
+    setExpandedMember(expandedMember === id ? null : id)
   }
 
   useEffect(() => {
@@ -98,14 +103,14 @@ export default function TeamPage() {
         {teamMembers.map((member) => (
           <div
           key={member.id}
-          className="bg-background/5 backdrop-blur-sm rounded-xl overflow-hidden group hover:bg-background/10 transition-colors"
+          className="bg-background/5 backdrop-blur-sm rounded-xl overflow-hidden transition-all duration-300 shadow-md hover:shadow-lg hover:bg-background/10"
           >
           <div className="relative h-80">
             <Image
             src={member.image || "/placeholder.svg"}
             alt={member.name}
             fill
-            className="object-cover transition-transform group-hover:scale-105"
+            className="object-cover transition-transform duration-300 hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -114,9 +119,21 @@ export default function TeamPage() {
             </div>
           </div>
           <div className="p-6">
-            <Button variant="outline" className="w-full rounded-full">
-            View Profile
+            <Button 
+              variant="outline" 
+              className="w-full rounded-full"
+              onClick={() => toggleMemberBio(member.id)}
+            >
+              {expandedMember === member.id ? "Hide Profile" : "View Profile"}
             </Button>
+            
+            {expandedMember === member.id && (
+              <div className="mt-4 overflow-hidden transition-all duration-300 ease-in-out">
+                <div className="p-4 bg-background/20 rounded-lg backdrop-blur-sm border border-primary/10">
+                  <p className="text-sm text-muted-foreground leading-relaxed">{member.bio}</p>
+                </div>
+              </div>
+            )}
           </div>
           </div>
         ))}
@@ -181,7 +198,11 @@ export default function TeamPage() {
           We're always looking for passionate students to join our Electrathon Racing Team. No experience necessary
           - just enthusiasm and dedication!
         </p>
-        <Button size="lg" className="rounded-full">
+        <Button 
+          size="lg" 
+          className="rounded-full"
+          onClick={() => window.open('https://discord.gg/EpuWhapy', '_blank')}
+        >
           Apply Now
         </Button>
         </div>

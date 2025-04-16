@@ -11,6 +11,18 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
+  // Ensure body doesn't scroll when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10)
@@ -28,14 +40,14 @@ export default function Navbar() {
     >
       <div className="container flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center space-x-3">
-        <div className="relative h-14 w-14">
-              <Image
-                src="/images/logo.png"
-                alt="Electrathon Racing Logo"
-                fill
-                className="object-contain"
-              />
-            </div>
+          <div className="relative h-14 w-14">
+            <Image
+              src="/images/logo.png"
+              alt="Electrathon Racing Logo"
+              fill
+              className="object-contain"
+            />
+          </div>
           <span className="font-bold text-2xl hidden sm:inline-block">WOSS EVC</span>
         </Link>
 
@@ -67,56 +79,56 @@ export default function Navbar() {
         </Button>
 
         {isMenuOpen && (
-          <div className="fixed inset-0 z-50 bg-background">
-            <div className="flex h-20 items-center justify-between px-4">
+          <div className="fixed inset-0 z-[100] bg-black">
+            <div className="flex h-20 items-center justify-between px-4 border-b border-gray-800">
               <Link href="/" className="flex items-center space-x-3">
-                <div className="relative h-10 w-10">
+                <div className="relative h-14 w-14">
                   <Image
-                    src="/images/Electrathon_PNG.png?height=32&width=32"
+                    src="/images/logo.png"
                     alt="Electrathon Racing Logo"
                     fill
                     className="object-contain"
                   />
                 </div>
-                <span className="font-bold text-2xl">WOSS EVC</span>
+                <span className="font-bold text-2xl text-white">WOSS EVC</span>
               </Link>
               <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(false)}>
-                <X className="h-6 w-6" />
+                <X className="h-6 w-6 text-white" />
                 <span className="sr-only">Close</span>
               </Button>
             </div>
-            <nav className="flex flex-col space-y-6 p-6">
+            <nav className="flex flex-col p-6">
               <Link
                 href="/"
-                className="text-2xl font-medium hover:text-primary transition-colors"
+                className="py-4 border-b border-gray-800 text-xl font-medium text-white hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
               </Link>
               <Link
                 href="/team"
-                className="text-2xl font-medium hover:text-primary transition-colors"
+                className="py-4 border-b border-gray-800 text-xl font-medium text-white hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Team
               </Link>
               <Link
                 href="/car"
-                className="text-2xl font-medium hover:text-primary transition-colors"
+                className="py-4 border-b border-gray-800 text-xl font-medium text-white hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Car
               </Link>
               <Link
                 href="/sponsors"
-                className="text-2xl font-medium hover:text-primary transition-colors"
+                className="py-4 border-b border-gray-800 text-xl font-medium text-white hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Sponsors
               </Link>
               <Link
                 href="/races"
-                className="text-2xl font-medium hover:text-primary transition-colors"
+                className="py-4 text-xl font-medium text-white hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Races
