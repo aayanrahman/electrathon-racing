@@ -21,6 +21,8 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 };
 
+// just checking if i did smth
+
 // Initialize Firebase
 let firebaseApp;
 let storage;
