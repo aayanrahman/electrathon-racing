@@ -10,6 +10,20 @@ export default function SponsorsPage() {
       tier: "platinum",
       logo: "/images/sponsers/atura.webp?height=120&width=240",
       description: "Pioneering the future of renewable energy technology and sustainable power solutions.",
+      website: "https://aturapower.com/"
+    },
+    {
+      name: "Pretium Engineering",
+      tier: "platinum",
+      logo: "/images/sponsers/preng.avif?height=120&width=240",
+      description: "Leading building scientists and engineers providing expert consulting in building science, mechanical and structural engineering across the complete lifecycle of buildings.",
+      website: "https://pretiumengineering.com/"
+    },
+    {
+      name: "Stack Adapt",
+      tier: "gold",
+      logo: "/images/sponsers/stat.png?height=120&width=240",
+      description: "Leading AI-powered programmatic advertising platform enabling brands to execute multi-channel campaigns across native, display, video, and other digital formats with advanced targeting and optimization capabilities.",
     },
     {
       name: "HackClub Bank",
@@ -63,32 +77,44 @@ export default function SponsorsPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-8">
             {sponsors
               .filter((s) => s.tier === "platinum")
               .map((sponsor) => (
-                <div
-                  key={sponsor.name}
-                  className="bg-black/50 backdrop-blur-sm rounded-xl overflow-hidden border border-primary/20 hover:border-primary/50 transition-colors"
-                >
-                  <div className="p-8 flex flex-col items-center text-center">
-                    <div className="relative h-24 w-48 mb-6">
-                      <Image
-                        src={sponsor.logo || "/placeholder.svg"}
-                        alt={sponsor.name}
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                    <h3 className="text-2xl font-bold">{sponsor.name}</h3>
-                    <p className="text-muted-foreground mt-2">{sponsor.description}</p>
-                    <Button variant="outline" className="mt-6 rounded-full">
-                      Visit Website
-                    </Button>
-                  </div>
+              <div
+                key={sponsor.name}
+                className="bg-black/50 backdrop-blur-sm rounded-xl overflow-hidden border border-primary/20 hover:border-primary/50 transition-colors"
+              >
+                <div className="p-8 flex flex-col items-center text-center">
+                <div className="relative h-24 w-48 mb-6">
+                  <Image
+                  src={sponsor.logo || "/placeholder.svg"}
+                  alt={sponsor.name}
+                  fill
+                  className="object-contain"
+                  />
                 </div>
+                <h3 className="text-2xl font-bold">{sponsor.name}</h3>
+                <p className="text-muted-foreground mt-2">{sponsor.description}</p>
+                {sponsor.website ? (
+                  <Button 
+                  variant="outline" 
+                  className="mt-6 rounded-full" 
+                  asChild
+                  >
+                  <a href={sponsor.website} target="_blank" rel="noopener noreferrer">
+                    Visit Website
+                  </a>
+                  </Button>
+                ) : (
+                  <Button variant="outline" className="mt-6 rounded-full" disabled>
+                  Visit Website
+                  </Button>
+                )}
+                </div>
+              </div>
               ))}
-          </div>
+            </div>
         </div>
       </section>
 

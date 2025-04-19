@@ -30,11 +30,11 @@ export default function TeamPage() {
     },
     {
       id: 2,
-      name: "Vidyith",
+      name: "Vidyuth",
       role: "Lead Engineer",
       number: 22,
       image: "/images/team/Vidyuth.webp?height=600&width=400",
-      bio: "Vidyith leads our engineering initiatives, focusing on understanding and implementing the technical requirements for our first electric racing car. He's passionate about learning vehicle dynamics and electrical systems.",
+      bio: "Vidyuth leads our engineering initiatives, focusing on understanding and implementing the technical requirements for our first electric racing car. He's passionate about learning vehicle dynamics and electrical systems.",
     },
     {
       id: 3,
