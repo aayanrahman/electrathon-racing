@@ -43,7 +43,7 @@ export default function Home() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div ref={heroRef} className="absolute inset-0 z-0">
           <Image
-            src="/images/boy.png?height=1080&width=1920"
+            src="/images/image.jpg?height=1080&width=1920"
             alt="Electrathon Racing Car"
             fill
             priority
@@ -103,7 +103,7 @@ export default function Home() {
             </div>
             <div className="relative h-[400px] md:h-[500px] rounded-xl overflow-hidden">
               <Image
-                src="/images/team.webp?height=500&width=500"
+                src="/images/pimage.jpg?height=500&width=500"
                 alt="Team working on Electrathon car design"
                 fill
                 className="object-cover"
@@ -175,7 +175,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold">Advanced Battery System</h3>
               <p className="text-muted-foreground">
-                Plans for a custom-designed 48V lithium-ion battery pack with integrated thermal management for optimal performance and safety.
+                Plans for a custom-designed 12V lithium-ion battery pack with integrated thermal management for optimal performance and safety.
               </p>
             </div>
 

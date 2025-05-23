@@ -63,10 +63,10 @@ export default function TeamPage() {
     {
       id: 6,
       name: "Shayaan Azeem",
-      role: "Vice President",
+      role: "Director of Finance & Race Strategy",
       number: 22,
       image: "/images/team/Shayaan.webp?height=600&width=400",
-      bio: "As Vice President of Strategy, Shayaan focuses on long-term planning and team development. His analytical approach and strategic thinking help optimize our resources and identify opportunities for continuous improvement in our racing program.",
+      bio: "As Director of Finance & Race Strategy, Shayaan manages the team's financial operations and develops race strategies. His expertise in financial planning and strategic analysis helps optimize our resource allocation and race performance. He plays a crucial role in securing sponsorships and ensuring the team's fiscal sustainability.",
     },
     {
       id: 7,
